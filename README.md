@@ -130,3 +130,17 @@ ollama pull gemma3:1b
 ```bash
 python main.py
 ```
+### 5. Running through Docker
+Install Docker Desktop
+Open PowerShell in your project folder and build the image:
+<img width="861" height="152" alt="image" src="https://github.com/user-attachments/assets/eaf78ac9-36e3-4aed-8015-4ffc30f54800" />
+### 6. Run the container passing the DISPLAY environment variable:
+<img width="875" height="215" alt="image" src="https://github.com/user-attachments/assets/4d5f267c-a02a-4a61-9a8e-01f2c65de1cd" />
+### 7. Option B: Running from WSL2 Terminal (Recommended for Windows)
+If you are running Docker commands directly inside a WSL2 Ubuntu terminal:
+
+<img width="978" height="366" alt="image" src="https://github.com/user-attachments/assets/b28aa3d4-f60a-44a4-810a-8a102d5300cc" />
+
+
+
+
