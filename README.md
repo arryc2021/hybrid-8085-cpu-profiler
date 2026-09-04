@@ -1,4 +1,5 @@
-![CI/CD Pipeline](https://github.com/arryc2021/hybrid-8085-cpu-profiler/actions/workflows/ci.yml/badge.svg)
+<img width="210" height="28" alt="image" src="https://github.com/user-attachments/assets/eec6ceb1-4ced-4cf2-8b4e-aa32294cd1ed" />
+
 
 # Industrial Hybrid 8085 Microarchitecture Profiler & AI Compiler
 
