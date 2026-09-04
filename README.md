@@ -86,7 +86,8 @@ Below is the profiler running the generated test sequence, highlighting the side
 * **What it shows:** System state after executing the 3-instruction sequence plus system halt.
 * **Calculations:**
   * **Arithmetic Result:** Register $A = 0x0F - 0x05 = \mathbf{0x0A}$
-  * **Parity Flag ($P$):** $0x0A = 0000\,1010_2$ (contains two 1s $ightarrow$ Even parity, so $P = 1$).
+  * **Parity Flag ($P$):** $0x0A = 0000\,1010_2$ (contains two 1s $
+ightarrow$ Even parity, so $P = 1$).
   * **Zero ($Z$), Sign ($S$), Carry ($CY$):** Result is positive, non-zero, with no borrow ($Z=0, S=0, CY=0$).
   * **Total T-States:** $7 + 7 + 1 = \mathbf{15 	ext{ cycles}}$
   * **Overall CPI:** $rac{15}{3} = \mathbf{5.00}$
@@ -113,7 +114,7 @@ cd hybrid-8085-cpu-profiler
 ### 2. Install Python Dependencies
 
 ```bash
-pip install matplotlib ollama
+pip install -r requirements.txt
 ```
 
 ### 3. Pull the Local SLM Model
