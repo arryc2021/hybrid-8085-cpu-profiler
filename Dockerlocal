@@ -1,0 +1,36 @@
+# Use an official Python base image
+FROM python:3.10-slim
+
+# Prevent Python from writing .pyc files and enable unbuffered output
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    DEBIAN_FRONTEND=noninteractive
+
+# Install system GUI dependencies for Tkinter and Matplotlib on Linux/WSL container
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    python3-tk \
+    tk-dev \
+    libfreetype6-dev \
+    libpng-dev \
+    libx11-6 \
+    libxext6 \
+    libxrender1 \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set working directory inside container
+WORKDIR /app
+
+# Copy dependency requirements file first to leverage layer caching
+COPY requirements.txt .
+
+# Install Python requirements
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy remaining source code into container
+COPY . .
+
+# Set host address to access Ollama running natively on the Windows host machine
+ENV OLLAMA_HOST=http://host.docker.internal:11434
+
+# Default entry command
+CMD ["python", "main.py"]
