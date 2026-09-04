@@ -1,3 +1,5 @@
+
+
 # Industrial Hybrid 8085 Microarchitecture Profiler & AI Compiler
 
 An industrial-grade 8085 CPU simulator, performance profiler, and AI co-pilot engineered to demonstrate low-latency hardware design, custom Instruction Set Architecture (ISA) extensions, and hardware-software co-design.
@@ -140,6 +142,18 @@ Open PowerShell in your project folder and build the image:
 If you are running Docker commands directly inside a WSL2 Ubuntu terminal:
 
 <img width="978" height="366" alt="image" src="https://github.com/user-attachments/assets/b28aa3d4-f60a-44a4-810a-8a102d5300cc" />
+
+### 8. How my ci/cd works?
+Refer to ci.yml 
+Trigger: Fires automatically every time you git push code or open a Pull Request to your main branch.
+
+Environment Setup: Provisions an isolated Ubuntu virtual machine and sets up Python 3.10.
+
+Dependency Check: Installs packages from your requirements.txt file and runs basic import tests.
+
+Code Quality Linting: Scans Python files for syntax errors and unused imports using flake8.
+
+Container Build Verification: Compiles your Windows/Linux Dockerfile to guarantee that new commits won't break the container build
 
 
 
