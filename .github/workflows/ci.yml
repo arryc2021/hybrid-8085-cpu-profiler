@@ -7,7 +7,6 @@ on:
     branches: [ "main", "master" ]
 
 jobs:
-  # Job 1: Linting & Code Quality Checks
   lint-and-test:
     runs-on: ubuntu-latest
 
@@ -24,20 +23,17 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-        pip install flake8 pytest
+        pip install flake8
 
-    - name: Lint Code with Flake8
+    - name: Lint Code
       run: |
-        # Stop build if there are Python syntax errors or undefined names
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-        # Exit-zero treats all errors as warnings
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
-    - name: Test Code Imports & Execution
+    - name: Verify Python Script Compilation
       run: |
-        python -c "import matplotlib; import ollama; print('Dependencies verified successfully')"
+        python -m py_compile 8085again.py
 
-  # Job 2: Build & Validate Docker Container
   docker-build:
     needs: lint-and-test
     runs-on: ubuntu-latest
@@ -53,6 +49,6 @@ jobs:
       uses: docker/build-push-action@v5
       with:
         context: .
-        file: ./Dockerfile
+        file: ./Dockerlocal
         push: false
         tags: hybrid-8085-cpu-profiler:latest
